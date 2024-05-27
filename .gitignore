@@ -1,1 +1,8 @@
 server/node_modules
+client/node_modules
+client/dist
+client/tmp
+client/out-tsc
+client/bazel-out
+client/.vscode
+client/coverage
