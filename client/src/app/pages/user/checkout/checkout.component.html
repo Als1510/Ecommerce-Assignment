@@ -1,0 +1,25 @@
+<!-- src/app/components/checkout/checkout.component.html -->
+<div>
+  <h2>Checkout</h2>
+  <div *ngIf="cartItems.length > 0">
+    <h3>Cart Items</h3>
+    <ul>
+      <li *ngFor="let cartItem of cartItems">
+        {{ cartItem.item }} - Quantity: {{ cartItem.quantity }}
+      </li>
+    </ul>
+    <div>
+      <p>Total Amount: {{ totalAmount }}</p>
+      <p>Discount Amount: {{ discountAmount }}</p>
+      <p>Final Amount: {{ finalAmount }}</p>
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Discount Code" [(ngModel)]="discountCode">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="applyDiscount()">Apply Discount</button>
+    <button mat-raised-button color="accent" (click)="checkout()">Checkout</button>
+  </div>
+  <div *ngIf="cartItems.length === 0">
+    <p>No items in cart</p>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- src/app/components/cart/cart.component.html -->
+<div>
+  <h2>Add to Cart</h2>
+  <form (ngSubmit)="addToCart()">
+    <mat-form-field>
+      <input matInput placeholder="Item" [(ngModel)]="item" name="item" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Quantity" [(ngModel)]="quantity" name="quantity" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Add to Cart</button>
+  </form>
+
+  <div *ngIf="cartItems.length > 0">
+    <h2>Cart Items</h2>
+    <ul>
+      <li *ngFor="let cartItem of cartItems">
+        {{ cartItem.item }} - Quantity: {{ cartItem.quantity }}
+        <button mat-button (click)="removeCartItem(cartItem.item)">Remove</button>
+        <input matInput type="number" [(ngModel)]="cartItem.quantity"
+          (change)="updateCartItem(cartItem.item, cartItem.quantity)">
+      </li>
+    </ul>
+    <button mat-raised-button color="warn" (click)="clearCart()">Clear Cart</button>
+    <button mat-raised-button color="primary" routerLink="/checkout">Proceed to Checkout</button>
+  </div>
+  <div *ngIf="cartItems.length === 0">
+    <p>No items in cart</p>
+  </div>
+</div>

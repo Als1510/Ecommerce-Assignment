@@ -6,3 +6,4 @@ client/out-tsc
 client/bazel-out
 client/.vscode
 client/coverage
+client/.angular

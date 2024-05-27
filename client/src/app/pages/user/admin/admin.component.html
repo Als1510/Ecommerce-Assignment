@@ -1,0 +1,13 @@
+<div>
+  <h2>Admin Panel</h2>
+  <button mat-raised-button color="primary" (click)="generateDiscount()" style="margin-bottom: 10px;">Generate Discount
+    Code</button>
+  <p *ngIf="newDiscountCode">New Discount Code: {{ newDiscountCode }}</p>
+  <button mat-raised-button color="primary" (click)="getStats()">Get Stats</button>
+  <div *ngIf="stats">
+    <p>Total Items Purchased: {{ stats.totalItemsPurchased }}</p>
+    <p>Total Purchase Amount: {{ stats.totalPurchaseAmount }}</p>
+    <p>Total Discount Amount: {{ stats.totalDiscountAmount }}</p>
+    <p>Discount Codes: {{ stats.discountCodes.join(', ') }}</p>
+  </div>
+</div>
