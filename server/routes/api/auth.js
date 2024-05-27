@@ -8,7 +8,6 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 let users = [
   { username: 'admin', password: 'admin', role: 'admin' },
-  { username: 'a', password: 'a', role: 'user' }
 ];
 
 router.post('/register', (req, res) => {
